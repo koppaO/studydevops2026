@@ -1,0 +1,9 @@
+stages:
+  - test
+
+job1:
+  stage: test
+  tags: [linux]
+  image: alpine:latest
+  script:
+    - echo "CI/CD is working!"

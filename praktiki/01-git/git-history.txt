@@ -1,0 +1,82 @@
+git log --oneline --graph --all
+*   4be25fd merge: add config file
+|\  
+| * bb2c3b6 chore: add config file
+|/  
+*   d8ac6d5 merge: resolve conflict in README
+|\  
+| * 2630690 docs: update title
+* | 06c0b32 docs: fix version
+|/  
+* 852613e feat: add personalized greeting function
+* 7abab16 feat: initial project structure added
+
+
+commits in chronological order
+7abab16 feat: initial project structure added
+852613e feat: add personalized greeting function
+2630690 docs: update title
+06c0b32 docs: fix version
+bb2c3b6 chore: add config file
+d8ac6d5 merge: resolve conflict in README
+4be25fd merge: add config file
+
+
+full
+commit 7abab16c5fd6e9b8b3fbba9081651c3aa6cfcfac
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:44 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:44 2026 +0300
+
+    feat: initial project structure added
+
+commit 852613e3750073ae5209e733dd2c62d42655f382
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    feat: add personalized greeting function
+
+commit 2630690913b627f82114b457155c82f922443b5b
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    docs: update title
+
+commit 06c0b321313b7882b55a48b3d156c4b4f9f9411b
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    docs: fix version
+
+commit bb2c3b6ea27826bb3ca5ee4e2a53b27398f7f810
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    chore: add config file
+
+commit d8ac6d559c862ee728abae0ddbb8f11e35bd5f56
+Merge: 06c0b32 2630690
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    merge: resolve conflict in README
+
+commit 4be25fdc6ea5e0e460d1253e9c047cd4640270e1
+Merge: d8ac6d5 bb2c3b6
+Author:     koppaO <animeforcoolguys@gmail.com>
+AuthorDate: Wed Nov 25 18:25:45 2026 +0300
+Commit:     koppaO <animeforcoolguys@gmail.com>
+CommitDate: Wed Nov 25 18:25:45 2026 +0300
+
+    merge: add config file

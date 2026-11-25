@@ -1,0 +1,26 @@
+# ServiceMonitor — объект Prometheus Operator (CRD monitoring.coreos.com).
+# Для kube-prometheus-stack нужен именно он: аннотации prometheus.io/* на поде
+# этот стек по умолчанию не читает. Пока CRD нет, файл не применять.
+# Метка release: prometheus-stack взята из имени сервиса в методичке
+# prometheus-stack-kube-prometheus-prometheus. Если Helm-релиз называется иначе,
+# метку надо заменить на ту, которую выбирает operator.
+# namespaceSelector предполагает приложение в namespace default.
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: fastapi-app
+  namespace: monitoring
+  labels:
+    app: fastapi-app
+    release: prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - default
+  selector:
+    matchLabels:
+      app: fastapi-app
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

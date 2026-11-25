@@ -1,0 +1,43 @@
+# Значения чарта grafana/loki-stack.
+# Сам файл ничего не ставит. Команда helm лежит в README.
+# Лимиты памяти небольшие: на учебном minikube рядом ещё само приложение и системные поды.
+# persistence у Loki выключена, после перезапуска пода старые логи стека пропадают.
+
+grafana:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+promtail:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 32Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+loki:
+  enabled: true
+  persistence:
+    enabled: false
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+# Метрики уже забирает kube-prometheus-stack из методички. Второй Prometheus не поднимаю.
+prometheus:
+  enabled: false
+
+fluent-bit:
+  enabled: false

@@ -1,0 +1,316 @@
+{
+  "info": {
+    "name": "User Service — практическая работа 3",
+    "description": "Проверки User Service на http://127.0.0.1:8000. Запускать сверху вниз: скрипт создания пишет {{user_id}}, скрипт входа пишет {{token}}. Notification Service на порту 8001 в эту коллекцию не входит.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "user_id",
+      "value": "1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Создать пользователя",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('создание: 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "const body = pm.response.json();",
+              "pm.collectionVariables.set('user_id', String(body.id));",
+              "pm.test('в ответе есть id и is_active', function () {",
+              "    pm.expect(body).to.have.property('id');",
+              "    pm.expect(body.is_active).to.eql(true);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Иван Петров\",\n  \"email\": \"ivan@example.com\",\n  \"age\": 25\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/users/",
+        "description": "Жду 201, в ответе id, created_at и is_active=true. Скрипт пишет id в {{user_id}}. Повтор с тем же email — 400. Если notify на порту 8001 выключен, всё равно 201, ошибка только в логе User Service."
+      }
+    },
+    {
+      "name": "Список пользователей",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('список: 200 и массив', function () {",
+              "    pm.response.to.have.status(200);",
+              "    pm.expect(pm.response.json()).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/users/?skip=0&limit=10",
+        "description": "Жду 200 и массив. skip и limit режут страницу. Для фильтра возраста откройте URL с &min_age=18: останутся только пользователи с age строго больше 18, записи без age в ответ не входят."
+      }
+    },
+    {
+      "name": "Пользователь по id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('карточка: 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const body = pm.response.json();",
+              "    pm.expect(String(body.id)).to.eql(pm.collectionVariables.get('user_id'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/users/{{user_id}}",
+        "description": "Жду 200 и ту же карточку, что создал. Подставьте id, которого нет (например 9999): будет 404."
+      }
+    },
+    {
+      "name": "Обновление без токена",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('без Bearer: 401', function () {",
+              "    pm.response.to.have.status(401);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Иван Петров (правка)\",\n  \"email\": \"ivan@example.com\",\n  \"age\": 26\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/users/{{user_id}}",
+        "description": "Заголовка Authorization нет специально. Жду 401. Имя в GET после этого запроса не меняется."
+      }
+    },
+    {
+      "name": "Регистрация",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('signup: 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "    const body = pm.response.json();",
+              "    pm.expect(body.username).to.eql('ivan');",
+              "    pm.expect(body).to.not.have.property('password');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"ivan\",\n  \"password\": \"secret123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/signup",
+        "description": "Жду 201. Пароль и хеш в ответе не приходят. Повтор того же username — 400."
+      }
+    },
+    {
+      "name": "Вход",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('login: 200 и access_token', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const body = pm.response.json();",
+              "    pm.expect(body).to.have.property('access_token');",
+              "    pm.collectionVariables.set('token', body.access_token);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"ivan\",\n  \"password\": \"secret123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/login",
+        "description": "Жду 200 и access_token. Скрипт кладёт его в {{token}}. Неверный пароль — 401. Если нет JWT_SECRET и нет файла .env — 500."
+      }
+    },
+    {
+      "name": "Обновление с Bearer",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('с Bearer: 200 и новое имя', function () {",
+              "    pm.response.to.have.status(200);",
+              "    pm.expect(pm.response.json().name).to.eql('Иван Петров (правка)');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Иван Петров (правка)\",\n  \"email\": \"ivan@example.com\",\n  \"age\": 26\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/users/{{user_id}}",
+        "description": "Заголовок Authorization: Bearer {{token}}. Жду 200 и новое имя. Пустой, просроченный или с чужой подписью токен — 401."
+      }
+    },
+    {
+      "name": "Удаление",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('удаление: 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/users/{{user_id}}",
+        "description": "С Bearer {{token}} первый ответ 200. Повторите DELETE того же id: будет 404. Без токена на этом маршруте — 401."
+      }
+    },
+    {
+      "name": "Посты пользователя",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('после удаления пользователя: 404', function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/users/{{user_id}}/posts",
+        "description": "В коллекции запрос стоит после удаления, поэтому при прогоне сверху вниз ждите 404: наружу сервис в этом случае не ходит. Пока пользователь с этим id есть, здесь массив постов jsonplaceholder. Ошибка или недоступность внешнего API — 502."
+      }
+    }
+  ]
+}

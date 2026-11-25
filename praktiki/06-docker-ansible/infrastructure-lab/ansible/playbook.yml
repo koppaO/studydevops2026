@@ -1,0 +1,41 @@
+---
+- name: Подготовить Ubuntu-хост и поднять infrastructure-lab
+  hosts: servers
+  become: true
+  tasks:
+    - name: Поставить docker.io и docker-compose-v2
+      ansible.builtin.apt:
+        name:
+          - docker.io
+          - docker-compose-v2
+        state: present
+
+    - name: Запустить службу docker и включить её в автозагрузку
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Создать каталог стенда
+      ansible.builtin.file:
+        path: /opt/infrastructure-lab
+        state: directory
+        mode: "0755"
+
+    - name: Скопировать compose.yml
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/../app/compose.yml"
+        dest: /opt/infrastructure-lab/compose.yml
+        mode: "0644"
+
+    # docker compose печатает Started и Created в stderr.
+    # Пока этих слов нет (контейнеры уже Running), задача не считается изменением.
+    - name: Поднять стек docker compose
+      ansible.builtin.command:
+        cmd: docker compose -f /opt/infrastructure-lab/compose.yml up -d
+      register: compose_up
+      changed_when: >-
+        'Started' in compose_up.stdout
+        or 'Created' in compose_up.stdout
+        or 'Started' in compose_up.stderr
+        or 'Created' in compose_up.stderr

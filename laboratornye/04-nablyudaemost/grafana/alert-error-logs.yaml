@@ -1,0 +1,118 @@
+# Provisioning Grafana unified alerting. Это не манифест Kubernetes.
+# kubectl apply к файлу не применять.
+#
+# Grafana читает из файла один YAML-документ. Ниже три документа:
+# правило, contact point и маршрут уведомлений. При настройке их кладут
+# отдельными файлами в каталог provisioning/alerting/.
+#
+# Токена здесь нет. Contact point читает TELEGRAM_BOT_TOKEN из окружения
+# пода Grafana ($__env{TELEGRAM_BOT_TOKEN}). В кластер значение попадает
+# через Secret, в git его не кладут. Пока переменной нет, канал пустой.
+#
+# UID источника Loki в правиле: loki. В Configuration → Data sources у Loki
+# нужно выставить этот UID или подставить свой.
+#
+# Условие: больше 5 строк, в которых есть ERROR, за 1 минуту.
+# Пять строк порог ещё не переходят. Нет строк — ряд пустой, noDataState: OK,
+# тишина не считается аварией.
+
+apiVersion: 1
+groups:
+  - orgId: 1
+    name: fastapi-error-logs
+    folder: Incident Investigation
+    interval: 1m
+    rules:
+      - uid: fastapi-error-logs
+        title: Больше 5 сообщений ERROR за минуту
+        condition: C
+        data:
+          - refId: A
+            queryType: instant
+            relativeTimeRange:
+              from: 60
+              to: 0
+            datasourceUid: loki
+            model:
+              datasource:
+                type: loki
+                uid: loki
+              editorMode: code
+              expr: 'sum(count_over_time({app="fastapi-app"} |= "ERROR" [1m]))'
+              instant: true
+              intervalMs: 1000
+              maxDataPoints: 43200
+              queryType: instant
+              refId: A
+          - refId: B
+            relativeTimeRange:
+              from: 60
+              to: 0
+            datasourceUid: __expr__
+            model:
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              reducer: last
+              refId: B
+              type: reduce
+              settings:
+                mode: dropNN
+          - refId: C
+            relativeTimeRange:
+              from: 60
+              to: 0
+            datasourceUid: __expr__
+            model:
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: B
+              refId: C
+              type: threshold
+              conditions:
+                - evaluator:
+                    params:
+                      - 5
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+        noDataState: OK
+        execErrState: Error
+        for: 0s
+        annotations:
+          summary: В логах fastapi-app больше 5 строк с ERROR за 1 минуту
+        labels:
+          severity: warning
+        isPaused: false
+---
+apiVersion: 1
+contactPoints:
+  - orgId: 1
+    name: telegram-stub
+    receivers:
+      - uid: telegram-stub
+        type: telegram
+        settings:
+          chatid: "$__env{TELEGRAM_CHAT_ID}"
+        secureSettings:
+          bottoken: "$__env{TELEGRAM_BOT_TOKEN}"
+        disableResolveMessage: false
+---
+# Этот документ заменяет дерево notification policies в Grafana.
+# На чистой учебной Grafana это нормально. На уже настроенной не включать вслепую.
+apiVersion: 1
+policies:
+  - orgId: 1
+    receiver: telegram-stub
+    group_by:
+      - grafana_folder
+      - alertname

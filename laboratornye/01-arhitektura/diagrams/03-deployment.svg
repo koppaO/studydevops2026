@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1280" viewBox="0 0 1980 1280">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="md9480f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#d9480f"/></marker><marker id="m1b7a45" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#1b7a45"/></marker><marker id="m1c4e80" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#1c4e80"/></marker></defs>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1c4e80" font-weight="700"><tspan x="24" y="29.0">Диаграмма развертывания. EduCloud</tspan></text>
+<rect x="24" y="56" width="390" height="250" rx="12" fill="#fff6db" stroke="#8a6d3b" stroke-width="2"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#8a6d3b" font-weight="700"><tspan x="40" y="81.6">Клиентские устройства</tspan></text>
+<rect x="48" y="110" width="342" height="70" rx="8" fill="#ffffff" stroke="#8a6d3b" stroke-width="1.5"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="219.0" y="138.75">Браузер, Web Client</tspan><tspan x="219.0" dy="18.75">React</tspan></text>
+<rect x="48" y="200" width="342" height="78" rx="8" fill="#ffffff" stroke="#8a6d3b" stroke-width="1.5"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="219.0" y="232.75">Мобильное приложение</tspan><tspan x="219.0" dy="18.75">React Native</tspan></text>
+<rect x="24" y="340" width="390" height="620" rx="12" fill="#fff1e6" stroke="#d9480f" stroke-width="2.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#d9480f" font-weight="700"><tspan x="40" y="367.6">Локальный дата-центр</tspan></text>
+<rect x="48" y="410" width="342" height="90" rx="8" fill="#ffffff" stroke="#d9480f" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="219.0" y="448.6">Firewall</tspan><tspan x="219.0" dy="20.0">перед архивом</tspan></text>
+<rect x="48" y="620" width="342" height="120" rx="8" fill="#ffffff" stroke="#d9480f" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="219.0" y="663.6">SFTP-сервер</tspan><tspan x="219.0" dy="20.0">архив лекций</tspan><tspan x="219.0" dy="20.0">порт 22</tspan></text>
+<rect x="45" y="767" width="168" height="41" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#d9480f"><tspan x="48" y="781.9">В интернет сервер</tspan><tspan x="48" dy="17.5">не публикуется</tspan></text>
+<polyline points="219,500 219,620" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#md9480f)"/>
+<rect x="229" y="537" width="72" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#d9480f"><tspan x="232" y="551.9">порт 22</tspan></text>
+<rect x="460" y="56" width="1490" height="980" rx="12" fill="#f4f9fd" stroke="#1c4e80" stroke-width="2.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#1c4e80" font-weight="700"><tspan x="480" y="85.3">Облачный кластер AWS</tspan></text>
+<rect x="1540" y="66" width="380" height="40" rx="8" fill="#dbeafe" stroke="#1c4e80" stroke-width="1.5"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933" font-weight="700"><tspan x="1730.0" y="89.6">Kubernetes (k8s)</tspan></text>
+<rect x="980" y="130" width="460" height="70" rx="10" fill="#dbeafe" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933" font-weight="700"><tspan x="1210.0" y="168.6">Load Balancer</tspan></text>
+<rect x="490" y="230" width="500" height="330" rx="10" fill="#ffffff" stroke="#1c4e80" stroke-width="1.75" stroke-dasharray="7 5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1c4e80" font-weight="700"><tspan x="506" y="255.6">Зона доступности AZ1</tspan></text>
+<rect x="514" y="290" width="452" height="90" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="740.0" y="328.75">Pod Auth Service</tspan><tspan x="740.0" dy="18.75">реплика, порт 8080</tspan></text>
+<rect x="514" y="410" width="452" height="90" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="740.0" y="448.75">Pod Course Service</tspan><tspan x="740.0" dy="18.75">реплика, порт 8080</tspan></text>
+<rect x="1060" y="230" width="500" height="330" rx="10" fill="#ffffff" stroke="#1c4e80" stroke-width="1.75" stroke-dasharray="7 5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1c4e80" font-weight="700"><tspan x="1076" y="255.6">Зона доступности AZ2</tspan></text>
+<rect x="1084" y="290" width="452" height="90" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1310.0" y="328.75">Pod Auth Service</tspan><tspan x="1310.0" dy="18.75">реплика, порт 8080</tspan></text>
+<rect x="1084" y="410" width="452" height="90" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1310.0" y="448.75">Pod Course Service</tspan><tspan x="1310.0" dy="18.75">реплика, порт 8080</tspan></text>
+<rect x="490" y="590" width="430" height="88" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="705.0" y="627.75">Pod Payment Service</tspan><tspan x="705.0" dy="18.75">порт 8080</tspan></text>
+<rect x="490" y="700" width="430" height="88" rx="8" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.75"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="705.0" y="737.75">Pod Notification Service</tspan><tspan x="705.0" dy="18.75">порт 8080</tspan></text>
+<rect x="1060" y="590" width="500" height="100" rx="8" fill="#f8fbff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1310.0" y="633.75">PostgreSQL StatefulSet</tspan><tspan x="1310.0" dy="18.75">порт 5432, без белого IP</tspan></text>
+<rect x="1060" y="720" width="500" height="100" rx="8" fill="#f8fbff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1310.0" y="763.75">Redis StatefulSet</tspan><tspan x="1310.0" dy="18.75">порт 6379, без белого IP</tspan></text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#3d4c5c"><tspan x="490" y="831.9">Внутренняя сеть кластера: 8080, 5432, 6379.</tspan><tspan x="490" dy="17.5">Обе зоны ходят в одни PostgreSQL и Redis.</tspan><tspan x="490" dy="17.5">Базы без белого IP. Снаружи открыт только порт 443.</tspan></text>
+<polyline points="414,150 980,150" fill="none" stroke="#1b7a45" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1b7a45)"/>
+<rect x="557" y="115" width="237" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1b7a45"><tspan x="560" y="129.9">Интернет, HTTPS, порт 443</tspan></text>
+<polyline points="1120,200 740,230" fill="none" stroke="#1c4e80" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1c4e80)"/>
+<polyline points="1280,200 1310,230" fill="none" stroke="#1c4e80" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1c4e80)"/>
+<rect x="857" y="199" width="92" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1c4e80"><tspan x="860" y="213.9">порт 8080</tspan></text>
+<polyline points="1310,500 1310,590" fill="none" stroke="#1c4e80" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1c4e80)"/>
+<rect x="1321" y="525" width="84" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1c4e80"><tspan x="1324" y="539.9">TCP 5432</tspan></text>
+<polyline points="1536,335 1630,335 1630,770 1560,770" fill="none" stroke="#1c4e80" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1c4e80)"/>
+<rect x="1639" y="477" width="84" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1c4e80"><tspan x="1642" y="491.9">TCP 6379</tspan></text>
+<polyline points="460,455 390,455" fill="none" stroke="#d9480f" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#md9480f)"/>
+<rect x="53" y="509" width="112" height="24" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#d9480f"><tspan x="56" y="523.9">VPN из AWS</tspan></text>
+<rect x="24" y="1100" width="1928" height="150" rx="8" fill="#ffffff" stroke="#c5d0dc" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1c4e80" font-weight="700"><tspan x="40" y="1124.75">Легенда</tspan></text>
+<rect x="40" y="1148" width="22" height="14" rx="3" fill="#fff6db" stroke="#8a6d3b" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="70" y="1155.9">Клиенты</tspan></text>
+<rect x="180" y="1148" width="22" height="14" rx="3" fill="#f4f9fd" stroke="#1c4e80" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="210" y="1155.9">Кластер AWS, Kubernetes</tspan></text>
+<rect x="460" y="1148" width="22" height="14" rx="3" fill="#fff1e6" stroke="#d9480f" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="490" y="1155.9">Локальный дата-центр</tspan></text>
+<rect x="740" y="1148" width="22" height="14" rx="3" fill="#e8f2fb" stroke="#1c4e80" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="770" y="1155.9">Pod или StatefulSet</tspan></text>
+<polyline points="1000,1156 1070,1156" fill="none" stroke="#1b7a45" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1b7a45)"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1b7a45"><tspan x="1080" y="1155.9">Интернет, 443</tspan></text>
+<polyline points="1260,1156 1330,1156" fill="none" stroke="#1c4e80" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#m1c4e80)"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1c4e80"><tspan x="1340" y="1155.9">Сеть кластера</tspan></text>
+<polyline points="1540,1156 1610,1156" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#md9480f)"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#d9480f"><tspan x="1620" y="1155.9">VPN до архива</tspan></text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#3d4c5c"><tspan x="40" y="1199.9">Снаружи только HTTPS 443. PostgreSQL и Redis без белого IP. SFTP открыт в туннель после firewall, не в интернет.</tspan></text>
+</svg>

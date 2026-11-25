@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pytest
+httpx
+black
+isort
+flake8
+pre-commit
+pytest-cov

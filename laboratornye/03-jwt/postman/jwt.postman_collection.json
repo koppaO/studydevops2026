@@ -1,0 +1,228 @@
+{
+  "info": {
+    "_postman_id": "c3a1e8b2-4d57-4f0a-9c6e-jwt-lab-03",
+    "name": "ЛР3 JWT",
+    "description": "Лабораторная работа № 3. Запросы идут сверху вниз. base_url по умолчанию http://localhost:8000. Пользователи в памяти процесса: повторный register того же имени даёт 400, пока сервер не перезапущен. Ожидаемый код написан в описании каждого запроса.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "public",
+      "description": "Ожидается 200. Оба адреса открыты без токена.",
+      "item": [
+        {
+          "name": "GET /",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/",
+            "description": "Ожидается 200. Публичный корень, токен не передаётся."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /public-info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/public-info",
+            "description": "Ожидается 200. Короткая публичная справка, токен не передаётся."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"SecurePass123\"\n}"
+        },
+        "url": "{{base_url}}/register",
+        "description": "Ожидается 201. Регистрация testuser. Роль не передана, сохранится user."
+      },
+      "response": []
+    },
+    {
+      "name": "token custom",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "  var data = pm.response.json();",
+              "  pm.collectionVariables.set('access_token', data.access_token);",
+              "  pm.collectionVariables.set('refresh_token', data.refresh_token);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"SecurePass123\"\n}"
+        },
+        "url": "{{base_url}}/token/custom",
+        "description": "Ожидается 200. JSON-вход, в ответе access_token, refresh_token и token_type bearer. Скрипт сохраняет оба токена в переменные коллекции."
+      },
+      "response": []
+    },
+    {
+      "name": "protected без токена",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/protected",
+        "description": "Ожидается 401. Заголовок Authorization не передаётся."
+      },
+      "response": []
+    },
+    {
+      "name": "protected с токеном",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/protected",
+        "description": "Ожидается 200. Bearer access_token. В ответе username, email, role, created_at."
+      },
+      "response": []
+    },
+    {
+      "name": "refresh",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "  var data = pm.response.json();",
+              "  pm.collectionVariables.set('access_token', data.access_token);",
+              "  pm.collectionVariables.set('refresh_token', data.refresh_token);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        },
+        "url": "{{base_url}}/refresh",
+        "description": "Ожидается 200. Новая пара токенов. Старый refresh после этого запроса в чёрном списке. Скрипт подменяет переменные на новую пару."
+      },
+      "response": []
+    },
+    {
+      "name": "logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        },
+        "url": "{{base_url}}/logout",
+        "description": "Ожидается 200. В чёрный список уходит refresh из предыдущего шага."
+      },
+      "response": []
+    },
+    {
+      "name": "refresh после logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        },
+        "url": "{{base_url}}/refresh",
+        "description": "Ожидается 401. Тот же refresh_token, что ушёл в logout, уже отозван."
+      },
+      "response": []
+    },
+    {
+      "name": "admin от user",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/protected/admin",
+        "description": "Ожидается 403. testuser зарегистрирован без роли admin, access-токен после refresh ещё действует."
+      },
+      "response": []
+    }
+  ]
+}

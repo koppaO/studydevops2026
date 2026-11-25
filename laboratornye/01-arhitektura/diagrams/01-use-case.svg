@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1960" height="1400" viewBox="0 0 1960 1400">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="m3b5bdb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#3b5bdb"/></marker><marker id="me8590c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#e8590c"/></marker></defs>
+<rect x="16" y="300" width="276" height="62" rx="10" fill="#fff6db" stroke="#8a6d3b" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="154.0" y="334.6">Студент</tspan></text>
+<rect x="16" y="600" width="276" height="62" rx="10" fill="#fff6db" stroke="#8a6d3b" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="154.0" y="634.6">Преподаватель</tspan></text>
+<rect x="16" y="860" width="276" height="62" rx="10" fill="#fff6db" stroke="#8a6d3b" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="154.0" y="894.6">Администратор</tspan></text>
+<rect x="16" y="1100" width="276" height="62" rx="10" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="154.0" y="1134.6">Технический специалист</tspan></text>
+<rect x="308" y="56" width="1404" height="1288" rx="12" fill="#f7fafc" stroke="#1c4e80" stroke-width="2.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1c4e80" font-weight="700"><tspan x="560" y="87.0">Система онлайн-обучения EduCloud</tspan></text>
+<ellipse cx="920.0" cy="146.0" rx="160.0" ry="34.0" fill="#dbeafe" stroke="#1c4e80" stroke-width="2.5"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933" font-weight="700"><tspan x="920.0" y="149.6">Авторизоваться</tspan></text>
+<ellipse cx="610.0" cy="283.0" rx="140.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="610.0" y="286.25">Просмотреть курсы</tspan></text>
+<ellipse cx="930.0" cy="283.0" rx="140.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="930.0" y="286.25">Скачать материалы</tspan></text>
+<ellipse cx="1240.0" cy="283.0" rx="120.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1240.0" y="286.25">Оплатить курс</tspan></text>
+<ellipse cx="685.0" cy="493.0" rx="215.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="685.0" y="496.25">Просмотреть архивные лекции</tspan></text>
+<ellipse cx="1240.0" cy="493.0" rx="135.0" ry="33.0" fill="#fff1e6" stroke="#d9480f" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1240.0" y="496.25">Применить скидку</tspan></text>
+<ellipse cx="615.0" cy="703.0" rx="145.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="615.0" y="706.25">Загрузить материал</tspan></text>
+<ellipse cx="920.0" cy="703.0" rx="120.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="920.0" y="706.25">Обновить курс</tspan></text>
+<ellipse cx="1260.0" cy="703.0" rx="180.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1260.0" y="706.25">Просмотреть статистику</tspan></text>
+<ellipse cx="665.0" cy="933.0" rx="195.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="665.0" y="936.25">Управлять пользователями</tspan></text>
+<ellipse cx="1060.0" cy="933.0" rx="160.0" ry="33.0" fill="#ffffff" stroke="#1c4e80" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1060.0" y="936.25">Управлять платежами</tspan></text>
+<ellipse cx="635.0" cy="1153.0" rx="165.0" ry="33.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="635.0" y="1156.25">Мониторить сервисы</tspan></text>
+<ellipse cx="1020.0" cy="1153.0" rx="180.0" ry="33.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1f2933"><tspan x="1020.0" y="1156.25">Перезапускать сервисы</tspan></text>
+<rect x="1736" y="230" width="200" height="64" rx="10" fill="#e5f6ec" stroke="#1b7a45" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="1836.0" y="265.6">Платёжный шлюз</tspan></text>
+<rect x="1736" y="430" width="200" height="64" rx="10" fill="#e5f6ec" stroke="#1b7a45" stroke-width="2"/>
+<text text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1f2933"><tspan x="1836.0" y="465.6">Почтовый сервер</tspan></text>
+<polyline points="360,196 920,196 920,180" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" marker-end="url(#m3b5bdb)"/>
+<rect x="397" y="165" width="131" height="25" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#3b5bdb" font-weight="700"><tspan x="400" y="180.75">&lt;&lt;include&gt;&gt;</tspan></text>
+<polyline points="610.0,250 610.0,214" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="930.0,250 930.0,214" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="1240.0,250 1240.0,214" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="360,214 1240.0,214" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="430,232 1240.0,232" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="610.0,232 610.0,250" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="930.0,232 930.0,250" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1240.0,232 1240.0,250" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="685.0,460 685.0,424" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="360,424 685.0,424" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="430,442 685.0,442" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="685.0,442 685.0,460" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="615.0,670 615.0,634" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="920.0,670 920.0,634" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="1260.0,670 1260.0,634" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="360,634 1260.0,634" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="430,652 1260.0,652" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="615.0,652 615.0,670" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="920.0,652 920.0,670" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1260.0,652 1260.0,670" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="665.0,900 665.0,864" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="1060.0,900 1060.0,864" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="360,864 1060.0,864" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="430,882 1060.0,882" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="665.0,882 665.0,900" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1060.0,882 1060.0,900" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="635.0,1120 635.0,1084" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="1020.0,1120 1020.0,1084" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="360,1084 1020.0,1084" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="430,1102 1020.0,1102" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="635.0,1102 635.0,1120" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1020.0,1102 1020.0,1120" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="360,196 360,1084" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="292,331.0 410,331.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,232 410,442" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,232 430,232" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,442 430,442" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="292,631.0 410,631.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,631.0 410,652" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,652 430,652" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="292,891.0 410,891.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,882 410,891.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,882 430,882" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="292,1131.0 410,1131.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,1102 410,1131.0" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="410,1102 430,1102" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="685,424 990,424 990,493 1105,493" fill="none" stroke="#3b5bdb" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5"/>
+<polyline points="410,442 410,548 1240.0,548 1240.0,526" fill="none" stroke="#334155" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1240.0,460 1240.0,316" fill="none" stroke="#e8590c" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" marker-end="url(#me8590c)"/>
+<rect x="1251.0" y="357" width="127" height="25" rx="3" fill="#ffffff" stroke="none"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#e8590c" font-weight="700"><tspan x="1254.0" y="372.75">&lt;&lt;extend&gt;&gt;</tspan></text>
+<polyline points="1360,273.0 1690,273.0 1690,262.0 1736,262.0" fill="none" stroke="#1b7a45" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1360,295.0 1712,295.0 1712,450 1736,450" fill="none" stroke="#1b7a45" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1220,933.0 1664,933.0 1664,280.0 1736,280.0" fill="none" stroke="#1b7a45" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="340" y="1208" width="1340" height="116" rx="8" fill="#ffffff" stroke="#c5d0dc" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#1c4e80" font-weight="700"><tspan x="356" y="1230.75">Обозначения</tspan></text>
+<rect x="356" y="1248" width="22" height="14" rx="3" fill="#fff6db" stroke="#8a6d3b" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="386" y="1255.9">Актёр</tspan></text>
+<rect x="470" y="1248" width="22" height="14" rx="3" fill="#e5f6ec" stroke="#1b7a45" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="500" y="1255.9">Внешняя система</tspan></text>
+<rect x="690" y="1248" width="22" height="14" rx="3" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="720" y="1255.9">Технический специалист</tspan></text>
+<rect x="980" y="1248" width="22" height="14" rx="3" fill="#fff1e6" stroke="#d9480f" stroke-width="1.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="1010" y="1255.9">Расширение оплаты</tspan></text>
+<polyline points="356,1284 410,1284" fill="none" stroke="#334155" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#1f2933"><tspan x="418" y="1283.9">Ассоциация</tspan></text>
+<polyline points="560,1284 630,1284" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" marker-end="url(#m3b5bdb)"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#3b5bdb"><tspan x="638" y="1283.9">&lt;&lt;include&gt;&gt; к «Авторизоваться»</tspan></text>
+<polyline points="980,1284 1050,1284" fill="none" stroke="#e8590c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" marker-end="url(#me8590c)"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#e8590c"><tspan x="1058" y="1283.9">&lt;&lt;extend&gt;&gt;: скидка дополняет оплату</tspan></text>
+</svg>
