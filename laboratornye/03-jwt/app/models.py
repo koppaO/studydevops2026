@@ -1,8 +1,4 @@
-"""Модели запросов и запись пользователя.
-
-EmailStr из методички не использую: вместе с ним ставится email-validator.
-Адрес проверяет check_email.
-"""
+"""Модели запросов. Email проверяю сам, без email-validator."""
 
 from datetime import datetime
 from typing import Literal, Optional
@@ -29,9 +25,7 @@ class User(BaseModel):
     password_hash: str = Field(exclude=True)
     role: Literal["user", "admin"] = "user"
     disabled: bool = False
-    # В методичке здесь datetime.utcnow() прямо в поле класса.
-    # Вызов срабатывает один раз при импорте, и время одно на всех.
-    # Поле без значения по умолчанию: время ставится при создании записи.
+    # без default: время ставлю при создании, не один раз на класс
     created_at: datetime
     token_version: int = 0
     # Растёт только при смене пароля. Access несёт это число в поле pwd.

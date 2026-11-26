@@ -35,7 +35,7 @@ loki:
       cpu: 200m
       memory: 256Mi
 
-# Метрики уже забирает kube-prometheus-stack из методички. Второй Prometheus не поднимаю.
+# Метрики уже у kube-prometheus-stack. Второй Prometheus не поднимаю.
 prometheus:
   enabled: false
 

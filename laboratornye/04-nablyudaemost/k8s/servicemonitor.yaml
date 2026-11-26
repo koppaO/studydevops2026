@@ -1,9 +1,7 @@
 # ServiceMonitor — объект Prometheus Operator (CRD monitoring.coreos.com).
 # Для kube-prometheus-stack нужен именно он: аннотации prometheus.io/* на поде
 # этот стек по умолчанию не читает. Пока CRD нет, файл не применять.
-# Метка release: prometheus-stack взята из имени сервиса в методичке
-# prometheus-stack-kube-prometheus-prometheus. Если Helm-релиз называется иначе,
-# метку надо заменить на ту, которую выбирает operator.
+# Если Helm-релиз называется иначе, метку release надо поменять.
 # namespaceSelector предполагает приложение в namespace default.
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor

@@ -129,7 +129,6 @@ app = FastAPI(title="Producer Service", lifespan=lifespan)
 @app.post("/orders/")
 async def create_order(order: Order):
     """Кладёт заказ в топик orders."""
-    # pydantic v2: model_dump(). .dict() из методички здесь уже нет.
     await publish("orders", order.model_dump(mode="json"))
     return {"status": "success", "message": f"Order {order.order_id} sent to Kafka"}
 

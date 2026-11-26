@@ -98,13 +98,7 @@ async def limit_auth_routes(request: Request, call_next):
 
 
 async def read_password_form(request: Request) -> OAuth2PasswordRequestForm:
-    """OAuth2 password flow: username и password в urlencoded-форме.
-
-    В методичке стоит Depends(OAuth2PasswordRequestForm). У этого класса
-    поля объявлены через Form(), а Form() на старте требует python-multipart.
-    Пакета в requirements нет, поэтому тело разбираю сам и собираю тот же
-    объект: набор полей у формы не меняется.
-    """
+    """Форма username/password. Form() тянет python-multipart, пакета нет, разбираю тело сам."""
     content_type = request.headers.get("content-type", "")
     media = content_type.split(";", 1)[0].strip().lower()
     if media != "application/x-www-form-urlencoded":
