@@ -1,0 +1,21 @@
+# Секрет только тестовый, в job test.
+
+stages:
+  - test
+  - security
+
+test:
+  stage: test
+  image: python:3.12-slim
+  variables:
+    SECRET_KEY: test-secret
+  script:
+    - pip install -r requirements.txt
+    - pytest -q
+
+bandit:
+  stage: security
+  image: python:3.12-slim
+  script:
+    - pip install bandit
+    - bandit -r api -ll

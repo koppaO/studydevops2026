@@ -1,0 +1,116 @@
+# Локальный стенд EduCloud. Пароли ниже только для лабы на своей машине.
+# Порты postgres, redis и kafka:9092 на хост не публикуются.
+
+name: educloud
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: educloud
+      POSTGRES_USER: educloud
+      # Пароль educloud только для локальной лабы.
+      POSTGRES_PASSWORD: educloud
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "educloud", "-d", "educloud"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: "2181"
+      ZOOKEEPER_TICK_TIME: "2000"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: "1"
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      # INTERNAL — контейнеры, EXTERNAL — клиент на хосте (localhost:9094).
+      KAFKA_LISTENERS: "INTERNAL://0.0.0.0:9092,EXTERNAL://0.0.0.0:9094"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:9092,EXTERNAL://localhost:9094"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_DEFAULT_REPLICATION_FACTOR: "1"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+
+  # Создаёт топик orders и выходит. Exited (0) — норма.
+  kafka-init:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      - kafka
+    entrypoint: ["bash", "/init/create-topics.sh"]
+    volumes:
+      - ./kafka-init/create-topics.sh:/init/create-topics.sh:ro
+    restart: "on-failure:3"
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:v0.7.2
+    depends_on:
+      - kafka
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: educloud
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:9092"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: educloud-api:local
+    depends_on:
+      - kafka
+    ports:
+      - "8000:8000"
+    environment:
+      SECRET_KEY: educloud-local-key
+      KAFKA_BOOTSTRAP: "kafka:9092"
+      ENABLE_DOCS: "1"
+
+  # SECRET_KEY не задан: консьюмеру секрет не нужен.
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: educloud-api:local
+    command: ["uvicorn", "consumer.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    depends_on:
+      - kafka
+    ports:
+      - "8001:8001"
+    environment:
+      KAFKA_BOOTSTRAP: "kafka:9092"
+
+  haproxy:
+    image: haproxy:2.9
+    depends_on:
+      - kafka
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+
+  # Пользователь guest только для локальной лабы.
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest

@@ -2,7 +2,19 @@
 
 ## Что сделал
 
-Нарисовал три схемы одной системы. Файлы в `diagrams/`: svg смотрится здесь, `.excalidraw` открывается локально.
+Нарисовал три схемы одной системы. Файлы в `diagrams/`, здесь они же.
+
+Варианты использования:
+
+![варианты использования](diagrams/01-use-case.svg)
+
+Потоки данных:
+
+![потоки данных](diagrams/02-dfd.svg)
+
+Развертывание:
+
+![развертывание](diagrams/03-deployment.svg)
 
 EduCloud: веб на React и мобильное на React Native. Сервисы Auth, Course, Payment, Notification. PostgreSQL для пользователей и курсов, Redis для сессий. Всё в Kubernetes на AWS. Архив лекций на SFTP в локальном ДЦ, до него VPN, перед архивом firewall. Оплата через Stripe, письма через SendGrid. Снаружи API Gateway.
 

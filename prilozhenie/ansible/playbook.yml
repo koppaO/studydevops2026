@@ -1,0 +1,31 @@
+---
+# Ubuntu: Docker и стек из каталога приложения. Копию в /opt не делаю.
+- name: Поставить Docker и поднять EduCloud
+  hosts: all
+  become: true
+  tasks:
+    - name: Поставить docker.io и docker-compose-v2
+      ansible.builtin.apt:
+        name:
+          - docker.io
+          - docker-compose-v2
+        state: present
+        update_cache: true
+
+    - name: Запустить службу docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    # Started и Created бывают в stdout и в stderr.
+    - name: Поднять стек из каталога приложения
+      ansible.builtin.command:
+        cmd: docker compose -f "{{ playbook_dir }}/../docker-compose.yml" up -d
+        chdir: "{{ playbook_dir }}/.."
+      register: compose_up
+      changed_when: >-
+        'Started' in compose_up.stdout
+        or 'Created' in compose_up.stdout
+        or 'Started' in compose_up.stderr
+        or 'Created' in compose_up.stderr

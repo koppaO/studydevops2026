@@ -2,7 +2,9 @@
 
 ## Что сделал
 
-Всё поднимается из `docker-compose.yml`: Zookeeper, Kafka, Kafka UI на порту 8080, HAProxy на 9093, RabbitMQ на 5672 и 15672.
+Всё поднимается из `prilozhenie/docker-compose.yml`: Zookeeper, Kafka, Kafka UI на порту 8080, HAProxy на 9093, RabbitMQ на 5672 и 15672. Кластер в UI онлайн, топик `orders` создался на 3 партиции.
+
+![Kafka UI](images/kafka-ui.png)
 
 У брокера два адреса. Контейнеры ходят на `kafka:9092`. Uvicorn на Windows — на `localhost:9094`. Один `localhost:9092` в advertised UI из контейнера не открывает: для него localhost это он сам.
 
